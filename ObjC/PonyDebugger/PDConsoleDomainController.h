@@ -18,7 +18,7 @@
 
 + (PDConsoleDomainController *)defaultInstance;
 
-- (void)logWithArguments:(NSArray *)args severity:(NSString *)severity;
+- (void)logWithArguments:(NSArray *)args ponyURL:(NSString *)ponyURL severity:(NSString *)severity;
 - (void)clear;
 
 @end

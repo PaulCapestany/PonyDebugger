@@ -32,9 +32,9 @@ static NSString *const PDClientIDKey = @"com.squareup.PDDebugger.clientID";
 static NSString *const PDBonjourServiceType = @"_ponyd._tcp";
 
 
-void _PDLogObjectsImpl(NSString *severity, NSArray *arguments)
+void _PDLogObjectsImpl(NSString *ponyURL, NSString *severity, NSArray *arguments)
 {
-    [[PDConsoleDomainController defaultInstance] logWithArguments:arguments severity:severity];
+    [[PDConsoleDomainController defaultInstance] logWithArguments:arguments ponyURL:ponyURL severity:severity];
 }
 
 

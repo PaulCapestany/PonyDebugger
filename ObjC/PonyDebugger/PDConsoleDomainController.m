@@ -63,7 +63,7 @@
 
 #pragma mark - Public Methods
 
-- (void)logWithArguments:(NSArray *)args severity:(NSString *)severity
+- (void)logWithArguments:(NSArray *)args ponyURL:(NSString *)ponyURL severity:(NSString *)severity
 {
     // Construct the message by creating the runtime objects for each argument provided.
     NSMutableString *text = [[NSMutableString alloc] init];
@@ -84,7 +84,7 @@
     [text deleteCharactersInRange:NSMakeRange(text.length - 1, 1)];
 
     PDConsoleConsoleMessage *consoleMessage = [[PDConsoleConsoleMessage alloc] init];
-    NSArray *severityOptions = @[@"debug", @"log", @"warn", @"info", @"error"];
+    NSArray *severityOptions = @[@"debug", @"log", @"warning", @"info", @"error"];
     if ([severityOptions containsObject:severity]) {
         consoleMessage.level = severity;
     } else {
@@ -96,7 +96,8 @@
     consoleMessage.parameters = parameters;
     consoleMessage.repeatCount = [NSNumber numberWithInteger:1];
     consoleMessage.text = text;
-
+    consoleMessage.url = ponyURL;
+    
     [self.domain messageAddedWithMessage:consoleMessage];
 }
 
