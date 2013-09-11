@@ -10,6 +10,11 @@ $(function() {
     },
 
     debuggerURL: function() {
+      var urlToOpen = "http://" + document.location.host + "/devtools/devtools.html?host=" + document.location.host + "&page=" + this.get('page');
+      console.log(urlToOpen);
+      window.open(urlToOpen, '_blank');
+      window.focus();
+
       return "devtools/devtools.html?host=" + document.location.host + "&page=" + this.get('page');
     }
   });
